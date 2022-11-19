@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="deltaspike" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgresPlusDialect"/>
+            <property name="hibernate.generate_statistics" value="true"/>
+            <!--          Avoid next property as it prints to the console, use logging instead!-->
+            <!--            <property name="hibernate.show_sql" value="true"/>-->
+
+            <property name="hibernate.format_sql"
+                      value="true"/>
+            <property name="hibernate.use_sql_comments"
+                      value="true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.user"
+                      value="cursist"/>
+            <property name="javax.persistence.jdbc.password"
+                      value="PaSSw0rd"/>
+            <!--        <property name="hibernate.show_sql" value="true"/>-->
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/deltaspike"/>
+            <property name="hibernate.connection.driver_class"
+                      value="org.postgresql.Driver"/>
+
+            <!--            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/${db.name}"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>
