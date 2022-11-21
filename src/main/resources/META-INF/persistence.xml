@@ -23,6 +23,7 @@
             <property name="javax.persistence.jdbc.password"
                       value="PaSSw0rd"/>
             <!--        <property name="hibernate.show_sql" value="true"/>-->
+<!--            schema generation was none, maar werkt dan niet. heb op create gezet-->
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/deltaspike"/>
             <property name="hibernate.connection.driver_class"

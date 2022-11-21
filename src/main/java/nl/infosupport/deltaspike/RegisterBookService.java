@@ -3,6 +3,8 @@ package nl.infosupport.deltaspike;
 
 import org.apache.deltaspike.jpa.api.transaction.Transactional;
 
+import javax.enterprise.event.Event;
+import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -15,6 +17,9 @@ public class RegisterBookService {
     @Inject
     BookRepository bookRepository;
 
+    @Inject @Any
+    Event<DemoEvent> event;
+
 
     public void remove(){
         Book book = bookRepository.findById(2L);
@@ -23,8 +28,7 @@ public class RegisterBookService {
     }
 
     public void save(){
-
-        bookRepository.save(new Book("HH"));
+        event.fire(new DemoEvent(bookRepository.save(new Book("HH"))));
     }
 
     public Long getBookCount(){

@@ -221,7 +221,7 @@ public class DeltaSpikeDataTests {
     void saveAnEntity(){
         Weld weld = new Weld();
 
-        try(WeldContainer weldContainer = weld.initialize();){
+        try(WeldContainer weldContainer = weld.initialize()){
             RegisterBookService registerBookService = weldContainer.select(RegisterBookService.class).get();
             registerBookService.save();
         }
