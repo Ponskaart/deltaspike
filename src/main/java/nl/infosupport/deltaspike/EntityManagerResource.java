@@ -2,6 +2,7 @@ package nl.infosupport.deltaspike;
 
 import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
 import org.apache.deltaspike.jpa.api.transaction.TransactionScoped;
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Disposes;
@@ -19,6 +20,7 @@ public class EntityManagerResource {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("deltaspike");
 
     @Produces // you can also make this @RequestScoped
+    @TransactionScoped
     public EntityManager create()
     {
         return emf.createEntityManager();

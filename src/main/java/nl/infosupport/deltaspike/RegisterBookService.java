@@ -1,11 +1,10 @@
 package nl.infosupport.deltaspike;
 
 
+import org.apache.deltaspike.jpa.api.transaction.Transactional;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.transaction.Transactional;
 
 @Transactional
 public class RegisterBookService {
@@ -18,7 +17,7 @@ public class RegisterBookService {
 
 
     public void remove(){
-        Book book = bookRepository.findById(1L);
+        Book book = bookRepository.findById(2L);
         bookRepository.remove(book);
 
     }
